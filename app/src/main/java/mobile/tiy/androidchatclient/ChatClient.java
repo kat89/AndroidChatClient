@@ -11,17 +11,19 @@ import java.net.Socket;
  */
 public class ChatClient {
 
-    public  String sendMessage(String incomingMessage) {
+    public String sendMessage(String incomingMessage) {
 
         try {
             Socket clientSocket = new Socket("172.168.4.9", 8005); //establishing connection
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true); //set connection on port 8005 for output stream
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             out.println(incomingMessage);
+            String serverMessage = in.readLine();
+            return serverMessage;
 
         } catch (IOException ioException) {
 
-        } return incomingMessage;
+        } return null;
     }
 
 }

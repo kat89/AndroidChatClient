@@ -30,7 +30,7 @@ public class ChatClientTest {
 
         String message = "message to app";
         String actualResponse = chatClient.sendMessage(message);
-        String expectedResponse = message;
+        String expectedResponse = "echo:" + message;
         assertEquals(expectedResponse, actualResponse);
 
 
